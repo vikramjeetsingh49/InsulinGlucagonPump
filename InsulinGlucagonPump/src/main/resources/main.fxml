@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" prefHeight="821.0" prefWidth="1304.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scs.gui.SimulatorController">
+
+
+    <bottom>
+        <Accordion maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+            <panes>
+
+            </panes>
+            <BorderPane.margin>
+                <Insets fx:id="x3" />
+            </BorderPane.margin>
+        </Accordion>
+    </bottom>
+    <center>
+        <VBox disable="false" fillWidth="true" focusTraversable="false" minWidth="700.0" prefHeight="-1.0" prefWidth="-1.0" snapToPixel="true" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane fx:id="anchorPane" prefHeight="275.0" prefWidth="837.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+                <children>
+                    <ImageView fitHeight="54.0" fitWidth="73.0" layoutX="250.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@insulin.png" />
+                        </image>
+                    </ImageView>
+                    <Label layoutX="353.0" layoutY="45.0" prefHeight="30.0" prefWidth="307.0" text="Insulin Glucagon Simulator Pump" textFill="#070707fc">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="user" layoutX="353.0" layoutY="172.0" promptText="Username">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </TextField>
+                    <ImageView fitHeight="30.0" fitWidth="223.0" layoutX="279.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@man.png" />
+                        </image></ImageView>
+                    <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="281.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@password.png" />
+                        </image>
+                    </ImageView>
+                    <Button fx:id="StartButton" contentDisplay="CENTER" layoutX="353.0" layoutY="289.0" mnemonicParsing="false" onAction="#loginPump" prefHeight="25.0" prefWidth="178.0" stylesheets="@button.css" text="Login" textFill="#f2f2f2" textOverrun="CENTER_WORD_ELLIPSIS">
+                        <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x15" />
+                        </HBox.margin>
+                    </Button>
+               <PasswordField fx:id="password" layoutX="353.0" layoutY="231.0" prefHeight="25.0" prefWidth="178.0" />
+               <Button layoutX="400.0" layoutY="87.0" mnemonicParsing="false" onAction="#insulinLogin" stylesheets="@button.css" text="On" />
+               <Label fx:id="validCred" layoutX="362.0" layoutY="266.0" prefHeight="17.0" prefWidth="120.0" text="Invalid Credentials" />
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="anchorPane2" prefHeight="549.0" prefWidth="809.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+            <children>
+                <GridPane layoutX="67.0" layoutY="7.0" prefHeight="542.0" prefWidth="809.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="7.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="558.0" minWidth="10.0" prefWidth="251.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="623.0" minWidth="10.0" prefWidth="558.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints maxHeight="353.0" minHeight="10.0" prefHeight="353.0" vgrow="SOMETIMES" />
+                    <RowConstraints maxHeight="320.0" minHeight="10.0" prefHeight="196.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <LineChart fx:id="lineChart" alternativeRowFillVisible="true" createSymbols="false" disable="false" focusTraversable="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" legendSide="BOTTOM" legendVisible="false" prefHeight="275.0" prefWidth="488.0" title="Blood SugarLevel" verticalGridLinesVisible="false" verticalZeroLineVisible="false" GridPane.columnIndex="1">
+                        <xAxis>
+                            <NumberAxis animated="false" autoRanging="false" disable="false" forceZeroInRange="true" label="Time (s)" minWidth="-1.0" minorTickVisible="true" side="BOTTOM" tickLabelGap="1.0" tickLabelsVisible="false" tickLength="10.0" tickMarkVisible="true" tickUnit="20.0" upperBound="300.0" fx:id="xAxis" />
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis fx:id="yAxis" animated="false" autoRanging="true" label="Glucose concentration (mmol/L)" minWidth="-Infinity" minorTickVisible="true" prefWidth="70.0" side="LEFT" tickLabelGap="5.0" tickLabelRotation="0.0" tickLabelsVisible="true" tickLength="10.0" tickMarkVisible="true" tickUnit="2.0" upperBound="20.0">
+                                <padding>
+                                    <Insets fx:id="x3" />
+                                </padding>
+                            </NumberAxis>
+                        </yAxis>
+                        <cursor>
+                            <Cursor fx:constant="DEFAULT" />
+                        </cursor>
+                    </LineChart>
+                    <GridPane alignment="TOP_CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="10.0" prefWidth="109.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="142.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="136.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="174.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                <children>
+                                    <Label layoutX="21.0" layoutY="51.0" prefHeight="8.0" prefWidth="16.0" text="HR" />
+                                    <Label layoutX="74.0" layoutY="51.0" text="MIN" />
+                                    <Label fx:id="timer" layoutX="19.0" layoutY="27.0" prefHeight="27.0" prefWidth="107.0" text="00   :    00">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="6.0" prefHeight="17.0" prefWidth="76.0" text="Timer">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                    </Label>
+                                </children>
+                            </Pane>
+                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <children>
+                                    <ProgressBar fx:id="batteryProgress" layoutX="27.0" layoutY="27.0" prefHeight="18.0" prefWidth="99.0" />
+                                    <ProgressBar fx:id="insulinProgress" layoutX="27.0" layoutY="71.0" prefHeight="18.0" prefWidth="99.0" />
+                                    <ProgressBar fx:id="glucagonProgress" layoutX="27.0" layoutY="118.0" prefHeight="18.0" prefWidth="99.0" />
+                                    <Label fx:id="label" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="45.0" prefHeight="20.0" prefWidth="93.0" text="Battery: 100%" />
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="89.0" prefHeight="20.0" prefWidth="96.0" text="Insulin : 100%" />
+                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="136.0" prefHeight="20.0" prefWidth="90.0" text="Glucagon: 100%" />
+                                </children>
+                            </Pane>
+                            <Pane prefHeight="180.0" prefWidth="133.0" GridPane.rowIndex="2">
+                                <children>
+                                    <Button layoutY="21.0" mnemonicParsing="false" onAction="#recharge" prefHeight="25.0" prefWidth="99.0" stylesheets="@button.css" text="Change Battery" />
+                                    <Button layoutY="69.0" mnemonicParsing="false" onAction="#refillInsulin" prefHeight="25.0" prefWidth="99.0" stylesheets="@button.css" text="Reset Insulin" />
+                                    <Button layoutY="116.0" mnemonicParsing="false" onAction="#refillGlucagon" prefHeight="25.0" prefWidth="99.0" stylesheets="@button.css" text="Reset Glucagon" />
+                                </children></Pane>
+                            <Pane prefHeight="200.0" prefWidth="200.0">
+                                <children>
+                                    <Button fx:id="startPump" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#startSimulator" stylesheets="@button.css" text="Start" textFill="#f8f8f8" />
+                                 <Button fx:id="stopPump" layoutX="55.0" layoutY="14.0" mnemonicParsing="false" onAction="#stopSimulator" stylesheets="@toggle-button.css" text="Stop" />
+                                 <!--<ToggleButton fx:id="tb1" layoutX="16.0" layoutY="39.0" mnemonicParsing="false" onAction="#startPump" text="Start" />-->
+                                 <!--<Button fx:id="stopSimulator" layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#stopSimulator" stylesheets="@toggle-button.css" text="Stop" />-->
+                                </children>
+                            </Pane>
+                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <children>
+                                    <Label layoutX="4.0" layoutY="6.0" prefHeight="20.0" prefWidth="129.0" text="Choose Calories">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                    </Label>
+                                    <ChoiceBox fx:id="caloriesCount" layoutX="4.0" layoutY="36.0" prefHeight="25.0" prefWidth="142.0" />
+                                    <Button layoutX="4.0" layoutY="70.0" mnemonicParsing="false" onAction="#consume" text="Consume" />
+                                </children>
+                            </Pane>
+                            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                              <children>
+                                 <ImageView fx:id="status2" fitHeight="42.0" fitWidth="43.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@alarm.png" />
+                                    </image>
+                                 </ImageView>
+                                 <ImageView fx:id="status1" fitHeight="42.0" fitWidth="43.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                    <image>
+                                       <Image url="@status.png" />
+                                    </image>
+                                 </ImageView>
+                                 <Label layoutX="-5.0" layoutY="-3.0" prefHeight="26.0" prefWidth="49.0" text="Status">
+                                    <font>
+                                       <Font size="14.0" />
+                                    </font>
+                                 </Label>
+                              </children></Pane>
+                        </children>
+                    </GridPane>
+                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <GridPane GridPane.rowIndex="1">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <children>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                        <content>
+                                            <VBox prefHeight="73.0" prefWidth="316.0">
+                                          <children>
+                                             <Label fx:id="errorMsg" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="297.0" text="Error" />
+                                             <Label fx:id="errorMsg2" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="297.0" />
+                                             <Label fx:id="errorMsg3" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="297.0" />
+                                             <Label fx:id="errorMsg4" alignment="TOP_LEFT" prefHeight="21.0" prefWidth="297.0" />
+                                          </children>
+                                            </VBox>
+                                        </content></ScrollPane>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                        <content>
+                                            <VBox prefHeight="87.0" prefWidth="311.0">
+                                          <children>
+                                             <Label fx:id="statusMsg" alignment="TOP_LEFT" prefHeight="10.0" prefWidth="295.0" text="Status">
+                                             </Label>
+                                             <Label fx:id="statusMsg2" alignment="TOP_LEFT" prefHeight="10.0" prefWidth="295.0" text="" />
+                                             <Label fx:id="statusMsg3" alignment="TOP_LEFT" prefHeight="10.0" prefWidth="295.0" text="" />
+                                             <Label fx:id="statusMsg4" alignment="TOP_LEFT" prefHeight="10.0" prefWidth="295.0" text="">
+                                                <graphic>
+                                                   <Label fx:id="statusMsg6" alignment="TOP_LEFT" prefHeight="10.0" prefWidth="295.0" text="" />
+                                                </graphic>
+                                             </Label>
+                                          </children>
+                                            </VBox>
+                                        </content></ScrollPane>
+                                </children>
+                            </GridPane>
+                            <GridPane fx:id="doctorPane" GridPane.rowIndex="2">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints maxHeight="49.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="61.0" minHeight="10.0" prefHeight="47.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                        <children>
+                                            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="140.0" text="Insulin Injected">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Label>
+                                            <TextArea prefHeight="21.0" prefWidth="87.0" />
+                                            <Label alignment="BOTTOM_CENTER" prefHeight="29.0" prefWidth="59.0" text="(mg/dl)" />
+                                        </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                        <children>
+                                            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="141.0" text="Glucagon Injected">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                            </Label>
+                                            <TextArea prefHeight="49.0" prefWidth="87.0" />
+                                            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="50.0" text="(mg/dl)" />
+                                        </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                        <children>
+                                            <HBox prefHeight="47.0" prefWidth="279.0">
+                                                <children>
+                                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="140.0" text="Max Daily Dosage">
+                                                        <font>
+                                                            <Font size="14.0" />
+                                                        </font>
+                                                    </Label>
+                                                    <TextArea prefHeight="21.0" prefWidth="87.0" />
+                                                    <Label alignment="BOTTOM_CENTER" prefHeight="29.0" prefWidth="59.0" text="units" />
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                        <children>
+                                            <HBox prefHeight="61.0" prefWidth="278.0">
+                                                <children>
+                                                    <HBox prefHeight="47.0" prefWidth="283.0">
+                                                        <children>
+                                                            <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="141.0" text="Current Daily Dosis">
+                                                                <font>
+                                                                    <Font size="14.0" />
+                                                                </font>
+                                                            </Label>
+                                                            <TextArea prefHeight="47.0" prefWidth="87.0" />
+                                                        </children>
+                                                    </HBox>
+                                                    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="101.0" text="units" />
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </GridPane>
+                        </children>
+                    </GridPane>
+                    <GridPane GridPane.rowIndex="1">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <Pane prefHeight="200.0" prefWidth="200.0">
+                                <children>
+
+                                    <RadioButton fx:id="rb1" layoutX="164.0" layoutY="32.0" mnemonicParsing="false" onAction="#radioButtonClicked" text="Automatic">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="toggleGroup" />
+                                    </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="rb2" layoutX="308.0" layoutY="32.0" mnemonicParsing="false" onAction="#radioButtonClicked" text="Manual" toggleGroup="$toggleGroup" />
+                                    <Label layoutX="164.0" layoutY="4.0" prefHeight="17.0" prefWidth="76.0" text="Mode">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                    </Label>
+                                    <Button fx:id="calculateBtn" layoutX="338.0" layoutY="74.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Calculate" />
+                                    <TextField fx:id="weightField" layoutX="171.0" layoutY="74.0" prefHeight="25.0" prefWidth="138.0" promptText="Enter weight (kg)" />
+                                    <Button fx:id="glucagonBtn" layoutX="308.0" layoutY="122.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Glucagon" />
+                                    <Button fx:id="insulinBtn" layoutX="171.0" layoutY="122.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Insulin" />
+                                </children>
+                            </Pane>
+                        </children>
+                    </GridPane>
+                </children>
+            </GridPane>
+            </children>
+        </AnchorPane>
+       </VBox>
+    </center>
+</BorderPane>
